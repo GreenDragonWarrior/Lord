@@ -18,9 +18,19 @@ tauri-build = { version = "1.5.0", features = [] }
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.5.2", features = [] }
+winreg = "0.51.0"
+oauth2 = "4.1.0"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
 # If you use cargo directly instead of tauri's cli you can use this feature flag to switch between tauri's `dev` and `build` modes.
 # DO NOT REMOVE!!
 custom-protocol = [ "tauri/custom-protocol" ]
+
+
+[[bin]]
+name = "app"
+path = "src/main.rs"
+# Указание на файл манифеста
+# Путь может отличаться в зависимости от местоположения файла манифеста
+manifest-path = "src/manifest.manifest"
